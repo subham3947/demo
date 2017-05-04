@@ -1,0 +1,84 @@
+-- This CLP file was created using DB2LOOK Version "9.7" 
+-- Timestamp: 8/13/2016 5:04:39 PM
+-- Database Name: CRM            
+-- Database Manager Version: DB2/NT Version 9.7.0          
+-- Database Codepage: 1252
+-- Database Collating Sequence is: UNIQUE
+
+
+CONNECT TO CRM;
+
+------------------------------------------------
+-- DDL Statements for table "WEBTEKLABS"."DETAILS"
+------------------------------------------------
+ 
+
+CREATE TABLE "WEBTEKLABS"."DETAILS"  (
+		  "NAME" VARCHAR(30) NOT NULL , 
+		  "DESIGNATION" VARCHAR(40) NOT NULL , 
+		  "ORGANIZATION" VARCHAR(40) NOT NULL , 
+		  "ADDRESS" VARCHAR(40) NOT NULL , 
+		  "CONTACT" VARCHAR(40) NOT NULL , 
+		  "EMAIL" VARCHAR(40) NOT NULL , 
+		  "BIRTH_DATE" VARCHAR(40) NOT NULL , 
+		  "BIO" VARCHAR(40) NOT NULL , 
+		  "PIC" VARCHAR(40) NOT NULL )   
+		 IN "USERSPACE1" ; 
+
+
+
+
+
+
+------------------------------------------------
+-- DDL Statements for table "WEBTEKLABS"."LOGIN"
+------------------------------------------------
+ 
+
+CREATE TABLE "WEBTEKLABS"."LOGIN"  (
+		  "USERNAME" VARCHAR(30) NOT NULL , 
+		  "PASSWORD" VARCHAR(30) NOT NULL )   
+		 IN "USERSPACE1" ; 
+
+
+
+
+
+
+------------------------------------------------
+-- DDL Statements for table "WEBTEKLABS"."COMMENT_T"
+------------------------------------------------
+ 
+
+CREATE TABLE "WEBTEKLABS"."COMMENT_T"  (
+		  "NAME" VARCHAR(20) NOT NULL , 
+		  "COMMENTS" VARCHAR(200) NOT NULL )   
+		 IN "USERSPACE1" ; 
+
+
+
+
+
+
+
+
+
+
+
+
+COMMIT WORK;
+
+CONNECT RESET;
+
+TERMINATE;
+
+-- Specified SCHEMA is: WEBTEKLABS
+-- The db2look utility will consider only the specified tables 
+-- Creating DDL for table(s)
+
+-- Schema name is ignored for the Federated Section
+-- Binding package automatically ... 
+-- Bind is successful
+-- Binding package automatically ... 
+-- Bind is successful
+;
