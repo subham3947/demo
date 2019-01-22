@@ -1,0 +1,173 @@
+from tkinter import *
+from tkinter import ttk
+from tkinter import messagebox as msg
+from tkinter.filedialog import askopenfilename
+from openpyxl import load_workbook
+
+root = Tk()
+root.title('CRDS')
+root.resizable(False,False)
+
+def openFile():
+    filename = filedialog.askopenfilename(filetypes=(('Microsoft Excel','*.xlsx'),('All files','*.*')))
+    file_entry.configure(state='normal')
+    file_entry.delete(0, END)
+    file_entry.insert(0, filename)
+    file_entry.configure(state='disabled')
+        
+def writeFile():
+    try:
+        filename=file_entry.get()
+        wb=load_workbook(filename)
+        ws=wb.active
+        ws.cell(row=1, column=1).value = scno.get()
+        ws.cell(row=1, column=2).value = scname.get()
+        #wb.save(filename)
+        success_label.configure(text='Write Successful')
+        
+    except FileNotFoundError:
+        msgBox()
+    finally:
+        wb.save(filename)
+        print('file closed')
+      
+
+def msgBox():
+    msg.showerror('Error','File not found!!')
+    
+    
+
+ttk.Label(root, text = "Scenario No.").grid(row = 0)
+scno=ttk.Entry(root)
+scno.grid(row = 0, column = 1,padx=5, pady=5) 
+
+ttk.Label(root, text = "Scenario Name").grid(row = 1) 
+scname=ttk.Entry(root)
+scname.grid(row = 1, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Key Value").grid(row = 2) 
+kv=ttk.Entry(root)
+kv.grid(row = 2, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Project").grid(row = 3) 
+pr=ttk.Entry(root)
+pr.grid(row = 3, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Key Value").grid(row = 4) 
+kv=ttk.Entry(root)
+kv.grid(row = 4, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Target Database").grid(row = 5) 
+tgt_db=ttk.Entry(root)
+tgt_db.grid(row = 5, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Target Environment").grid(row = 6) 
+tgt_env=ttk.Entry(root)
+tgt_env.grid(row = 6, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Target Layer").grid(row = 7) 
+tgt_lyr=ttk.Entry(root)
+tgt_lyr.grid(row = 7, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Target Schema").grid(row = 8) 
+tgt_sch=ttk.Entry(root)
+tgt_sch.grid(row = 8, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Target Table").grid(row = 9) 
+tgt_table=ttk.Entry(root)
+tgt_table.grid(row = 9, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Target Query").grid(row = 10) 
+tgt_query=ttk.Entry(root)
+tgt_query.grid(row = 10, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Column List").grid(row = 11) 
+col_list=ttk.Entry(root)
+col_list.grid(row = 11, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Filter Column").grid(row = 12) 
+fil_col=ttk.Entry(root)
+fil_col.grid(row = 12, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Filter Value").grid(row = 13) 
+fil_val=ttk.Entry(root)
+fil_val.grid(row = 13, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Mandatory Index").grid(row = 14) 
+man_ind=ttk.Entry(root)
+man_ind.grid(row = 14, column = 1,padx=5, pady=5)
+
+ttk.Label(root, text = "Highlight Columns").grid(row =15) 
+high_col=ttk.Entry(root)
+high_col.grid(row = 15, column = 1,padx=5, pady=5)
+
+
+ttk.Label(root, text = "Order By").grid(row = 0,column = 2)
+order_by=ttk.Entry(root)
+order_by.grid(row = 0, column = 3,padx=5, pady=5) 
+
+ttk.Label(root, text = "Column1").grid(row = 1,column = 2) 
+col1=ttk.Entry(root)
+col1.grid(row = 1, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Value1").grid(row = 2,column = 2) 
+val1=ttk.Entry(root)
+val1.grid(row = 2, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Column2").grid(row = 3,column = 2) 
+col2=ttk.Entry(root)
+col2.grid(row = 3, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Value2").grid(row = 4,column = 2) 
+val2=ttk.Entry(root)
+val2.grid(row = 4, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Column3").grid(row = 5,column = 2) 
+col3=ttk.Entry(root)
+col3.grid(row = 5, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Value3").grid(row = 6,column = 2) 
+val3=ttk.Entry(root)
+val3.grid(row = 6, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Column4").grid(row = 7,column = 2) 
+col4=ttk.Entry(root)
+col4.grid(row = 7, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Value4").grid(row = 8,column = 2) 
+val4=ttk.Entry(root)
+val4.grid(row = 8, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Column5").grid(row = 9,column = 2) 
+col5=ttk.Entry(root)
+col5.grid(row = 9, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Value5").grid(row = 10,column = 2) 
+val5=ttk.Entry(root)
+val5.grid(row = 10, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Column6").grid(row = 11,column = 2) 
+col6=ttk.Entry(root)
+col6.grid(row = 11, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Value6").grid(row = 12,column = 2) 
+val6=ttk.Entry(root)
+val6.grid(row = 12, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Column7").grid(row = 13,column = 2) 
+col7=ttk.Entry(root)
+col7.grid(row = 13, column = 3,padx=5, pady=5)
+ttk.Label(root, text = "Value7").grid(row = 14,column = 2) 
+val7=ttk.Entry(root)
+val7.grid(row = 14, column = 3,padx=5, pady=5)
+
+ttk.Label(root, text = "Open Workbook").grid(row = 15,column = 2)
+brwse_btn=ttk.Button(root, text = "Browse", command = openFile).grid(row=15,column=4)
+file_entry = ttk.Entry(root,state='disabled')
+file_entry.grid(row = 15, column = 3) 
+
+
+write_btn=ttk.Button(root, text = "Write", command = writeFile).grid(row=16,column=0,columnspan=10)
+success_label=ttk.Label(root)
+success_label.grid(row = 18)
+root.mainloop()
